@@ -1,0 +1,65 @@
+# Ignorer les fichiers spécifiques à macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Fichiers de configuration spécifiques à l'IDE
+.idea/
+*.swp
+*.swo
+*.iml
+
+# Fichiers de dépendances et de build pour Java/Spring Boot
+/target/
+/build/
+/out/
+/*.war
+/*.jar
+/*.class
+
+# Fichiers de configuration de l'environnement
+.env
+.env.local
+.env*.local
+
+# Fichiers de dépendances pour Node.js/Angular
+/node_modules/
+/dist/
+/tmp/
+/out-tsc/
+/e2e/
+
+# Fichiers de configuration et de cache pour Angular
+/.angular/
+/.angular/cache/
+/src/environments/environment.prod.ts
+/src/environments/environment.ts
+
+# Fichiers de configuration pour npm/yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/package-lock.json
+/yarn.lock
+
+# Fichiers de configuration pour les outils de build Java
+/.settings/
+/bin/
+/*.iml
+/*.ipr
+/*.iws
+/.classpath
+/.project
+/.factorypath
+/settings/
+/library/
+/*.orig
+
+# Fichiers de logs et de cache
+/logs/
+/*.log
+/.cache/
+
+# Fichiers de configuration pour les tests
+/coverage/
+/test-results/
