@@ -22,11 +22,14 @@ public class SpringSecurityConfig {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     return http
-            .cors(withDefaults()) // CORS intégré
-            .csrf(AbstractHttpConfigurer::disable) // Désactivation de CSRF pour les API REST
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Stateless (pas de session)
+            .cors(withDefaults())
+            .csrf(csrf -> csrf.disable())
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                    .anyRequest().permitAll()) // Permet toutes les requêtes sans authentification
+                    .requestMatchers("/h2-console/**").permitAll()
+                    .anyRequest().permitAll())
+            .headers(headers -> headers
+                    .frameOptions(frameOptionsConfig -> frameOptionsConfig.sameOrigin()))
             .build();
   }
 
@@ -37,7 +40,6 @@ public class SpringSecurityConfig {
     configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(List.of("*"));
     configuration.setAllowCredentials(true);
-
     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", configuration);
     return source;
