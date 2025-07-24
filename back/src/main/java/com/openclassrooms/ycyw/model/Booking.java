@@ -1,6 +1,8 @@
 package com.openclassrooms.ycyw.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,30 +10,21 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class User {
+public class Booking {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String mail;
+  private Long locationId;
 
-  private String password;
+  private Long payementId;
 
-  private String firstname;
-
-  private String lastname;
-
-  private String phone;
-
-  private Date birthDate;
-
-  private Role roleId;
+  private Long userId;
 
   @CreationTimestamp
   private LocalDateTime createdAt;
