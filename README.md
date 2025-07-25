@@ -40,4 +40,4 @@ Launch Back-end:
 Navigate to `http://localhost:4200/chat` and insert a name, then start the chat !
 For the "service client", navigate to `http://localhost:4200/chat/service-client` and respond to the customer !
 
-The SQL file is : /back/src/main/resources/data.sql
+The SQL file is in : /back/src/main/resources/BDD.sql
